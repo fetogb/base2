@@ -170,9 +170,9 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 	},
 	Pegar: function(){
 		pegimagem = document.querySelector(".ativo img").getAttribute("src");
-		window.plugins.socialsharing.share(null, null, pegimagem, null);
+		window.plugins.socialsharing.share(null, null, pegimagem, null)
 	},	
-	Sepia: function(){
+	Sepia: function(){                                                                                                            
 		var div = document.getElementById("slider");
 		if(div.style.filter == "sepia(100%)"){
 		div.style.filter = "sepia(0%)";

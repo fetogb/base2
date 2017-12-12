@@ -45,21 +45,20 @@
 
 <body onload="app.CarregarSlider()">
     <div class="content-block">
-		<button id="take" onclick="app.CapturePhoto()" class="mdl-button mdl-button--raised mdl-button--colored"> Take Photo</button>
+		<button id="take" onclick="app.CapturePhoto()"> Take Photo</button>
 			<figure>
 			<div class="slider" id="slider">
 			<a href="#" class="trs" id="vegeta"><img src="https://s-media-cache-ak0.pinimg.com/originals/70/cf/29/70cf29c207d1de252b212bdfca513aab.jpg"/></a>
 			<a href="#" class="trs" id="goku"><img src="https://vignette.wikia.nocookie.net/dragonball/images/8/8c/Gokussj2.jpg/revision/latest?cb=20120129193440"/></a>
 			</div>	
 			</figure>
-		<button id="use" onclick="app.Geoloc()"> Use Photo</button>
-		<button class="filtro mdl-button mdl-button--raised mdl-button--colored" onclick="app.Sepia()"> Sepia </button>
-		<button class="filtro mdl-button mdl-button--raised mdl-button--colored" onclick="app.Acelerometro()"> Mono</button>
-		<button class="filtro mdl-button mdl-button--raised mdl-button--colored" id="Invert" onclick="app.Invert()"> Invert </button>
-		<button class="g" > G+ Share </button>
-		<button class="g" onclick="app.Geoloc()"> G+ Location </button>
-		<label for="arq">Choose Photo></label><button id="arq" > arquivo </button>
-		<button id="enviar" onclick="app.Pegar()"> Send Photo</button>
+		<button class="filtro mdl-button mdl-button--raised" onclick="app.Sepia()"> Sepia </button>
+		<button class="filtro mdl-button mdl-button--raised" onclick="app.Acelerometro()"> Mono</button>
+		<button class="filtro mdl-button mdl-button--raised" id="Invert" onclick="app.Invert()"> Invert </button>
+		<button class="g mdl-button mdl-button--raised" > G+ Share </button>
+		<button class="g mdl-button mdl-button--raised" onclick="app.Geoloc()"> G+ Location </button>
+		<label for="arq">Choose Photo></label><button id="arq" class="mdl-button mdl-button--raised"> arquivo </button>
+		<button id="enviar" onclick="app.Pegar()" class="mdl-button mdl-button--raised"> Send Photo</button>
 	</div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
