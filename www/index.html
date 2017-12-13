@@ -45,7 +45,7 @@
 
 <body onload="app.CarregarSlider()">
     <div class="content-block">
-		<button id="take" onclick="app.CapturePhoto()"> Take Photo</button>
+		<button id="take" onclick="app.CapturePhoto()" class="mdl-button mdl-button--raised"> Take Photo</button>
 			<figure>
 			<div class="slider" id="slider">
 			<a href="#" class="trs" id="vegeta"><img src="https://s-media-cache-ak0.pinimg.com/originals/70/cf/29/70cf29c207d1de252b212bdfca513aab.jpg"/></a>
@@ -53,12 +53,12 @@
 			</div>	
 			</figure>
 		<button class="filtro mdl-button mdl-button--raised" onclick="app.Sepia()"> Sepia </button>
-		<button class="filtro mdl-button mdl-button--raised" onclick="app.Acelerometro()"> Mono</button>
+		<button class="filtro mdl-button mdl-button--raised" onclick="app.Cinza()"> Mono</button>
 		<button class="filtro mdl-button mdl-button--raised" id="Invert" onclick="app.Invert()"> Invert </button>
 		<button class="g mdl-button mdl-button--raised" > G+ Share </button>
 		<button class="g mdl-button mdl-button--raised" onclick="app.Geoloc()"> G+ Location </button>
 		<label for="arq">Choose Photo></label><button id="arq" class="mdl-button mdl-button--raised"> arquivo </button>
-		<button id="enviar" onclick="app.Pegar()" class="mdl-button mdl-button--raised"> Send Photo</button>
+		<button id="enviar" onclick="app.Pegar()" class="mdl-button mdl-js-button mdl-js-ripple-effect"> Send Photo</button>
 	</div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
