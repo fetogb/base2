@@ -40,30 +40,29 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 	<link rel="stylesheet" type="text/css" href="css/material.css" />
+
     <title>Hello World</title>
 </head>
 
-<body onload="app.CarregarSlider()">
+<body>
     <div class="content-block">
-		<button id="take" onclick="app.CapturePhoto()" class="mdl-button mdl-button--raised"> Take Photo</button>
+		<button id="take" onclick="app.CapturePhoto()" class="prin mdl-button mdl-button--raised mdl-button--colored"> Take Photo</button>
 			<figure>
 			<div class="slider" id="slider">
-			<a href="#" class="trs" id="vegeta"><img src="https://s-media-cache-ak0.pinimg.com/originals/70/cf/29/70cf29c207d1de252b212bdfca513aab.jpg"/></a>
-			<a href="#" class="trs" id="goku"><img src="https://vignette.wikia.nocookie.net/dragonball/images/8/8c/Gokussj2.jpg/revision/latest?cb=20120129193440"/></a>
+			<img id="oi" src="img\semfoto.jpg">
 			</div>	
 			</figure>
 		<button class="filtro mdl-button mdl-button--raised" onclick="app.Sepia()"> Sepia </button>
 		<button class="filtro mdl-button mdl-button--raised" onclick="app.Cinza()"> Mono</button>
 		<button class="filtro mdl-button mdl-button--raised" id="Invert" onclick="app.Invert()"> Invert </button>
-		<button class="g mdl-button mdl-button--raised" > G+ Share </button>
-		<button class="g mdl-button mdl-button--raised" onclick="app.Geoloc()"> G+ Location </button>
-		<label for="arq">Choose Photo></label><button id="arq" class="mdl-button mdl-button--raised"> arquivo </button>
-		<button id="enviar" onclick="app.Pegar()" class="mdl-button mdl-js-button mdl-js-ripple-effect"> Send Photo</button>
+		<button id="enviar" onclick="app.Pegar()" class="prin mdl-button mdl-button--raised mdl-button--colored"> Send Photo</button>
+		<button id="procurar" class="procurar mdl-button mdl-button--fab mdl-button--colored" onclick="app.Verde()"><img src="img\search.png"></button>
 	</div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript" src="js/material.js"></script>
 	<script type="text/javascript" src="js/material.min.js"></script>
+
 </body>
 
 </html>

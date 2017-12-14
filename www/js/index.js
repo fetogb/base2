@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var pictureSource;   // picture source
+var destinationType; // sets the format of returned value
 var app = {
     // Application Constructor
     initialize: function() {
@@ -33,31 +35,10 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+		pictureSource = navigator.camera.PictureSourceType;
+		destinationType = navigator.camera.DestinationType;
         app.receivedEvent('deviceready');	
-		
     },
-	CapturePhoto: function(){
-		navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-		destinationType: Camera.DestinationType.DATA_URL
-		});
-
-		function onSuccess(imageData) {
-			ad = "data:image/jpeg;base64," + imageData;
-			adicao(ad);
-			var image = document.getElementById('imagem');
-			image.src = "data:image/jpeg;base64," + imageData;
-		}
-
-		function onFail(message) {
-			alert('Failed because: ' + message);
-		}
-		
-		function adicao(cade){
-			var $wrapper = document.querySelector('.slider'),
-			HTMLNovo = '<a href="#" class="trs"><img src="'+cade+'"/></a>';
-			$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
-		}
-	},
 	CarregarSlider: function(){
 		 settings = {
 			primeiraImg: function(){
@@ -113,10 +94,12 @@ var app = {
 	Acelerometro: function(){		
 var xanterior = 0;	
 function onSuccess(acceleration) {
-	if(xanterior > 3){
+	if(xanterior > 5){
 			settings.proximo();
-		}else if (xanterior < -3){
+			xanterior = 0;
+		}else if (xanterior < -5){
 			settings.anterior();
+			xanterior = 0;
 		}
 		  'Acceleration X: ' + acceleration.x + '\n' +
           'Acceleration Y: ' + acceleration.y + '\n' +
@@ -170,7 +153,8 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 	},
 	Pegar: function(){
 		pegimagem = document.querySelector(".ativo img").getAttribute("src");
-		window.plugins.socialsharing.share(null, null, pegimagem, null)
+		window.plugins.socialsharing.share(null, null, pegimagem, null);
+		//window.plugins.socialsharing.share(null, 'Android filename', 'data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7', null)
 	},	
 	Sepia: function(){                                                                                                            
 		var div = document.getElementById("slider");
@@ -195,6 +179,68 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 		}else{
 		div.style.filter = "grayscale(100%)";
 		}
-	}
+	},
+	CapturePhoto: function(){
+		navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+		destinationType: Camera.DestinationType.DATA_URL
+		});
+
+		function onSuccess(imageData) {
+			ad = "data:image/jpeg;base64," + imageData;
+			adicao(ad);
+			var image = document.getElementById('imagem');
+			image.src = "data:image/jpeg;base64," + imageData;
+		}
+
+		function onFail(message) {
+			alert('Failed because: ' + message);
+		}
+		
+		function adicao(imagemadd){
+			elemento = document.querySelector(".slider img");
+			if(elemento.id == "oi"){
+				var x = document.getElementById('slider');
+				x.innerHTML = "";
+				var $wrapper = document.querySelector('.slider'),
+				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
+				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
+				app.CarregarSlider();
+			}else{
+				var $wrapper = document.querySelector('.slider'),
+				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
+				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
+				app.CarregarSlider();
+			}
+		}
+	},
+	Verde: function(){
+		navigator.camera.getPicture(onPhotoURISuccess, onFail, {quality: 50,
+		destinationType: Camera.DestinationType.File_URI,
+		sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+		});
 	
+	function adicao(imagemadd){
+			elemento = document.querySelector(".slider img");
+			if(elemento.id == "oi"){
+				var x = document.getElementById('slider');
+				x.innerHTML = "";
+				var $wrapper = document.querySelector('.slider'),
+				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
+				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
+				app.CarregarSlider();
+			}else{
+				var $wrapper = document.querySelector('.slider'),
+				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
+				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
+				app.CarregarSlider();
+			}
+		}
+    function onPhotoURISuccess(imageURI) {
+		adicao(imageURI);
+    }
+	function onFail(message) {
+			alert('Failed because: ' + message);
+	}
+			
+	}
 };
