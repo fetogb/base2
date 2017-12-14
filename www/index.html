@@ -22,8 +22,13 @@
 	  if(elemento.id == "oi"){
 				var x = document.getElementById('slider');
 				x.innerHTML = "";
-				x.innerHTML = "<img src="+imageURI+">";
+				x.innerHTML = "<a href='#' class='trs'><img src="+imageURI+"></a>";
+				app.CarregarSlider();
 			}else{
+				var $wrapper = document.querySelector('.slider'),
+				HTMLNovo = '<a href="#" class="trs"><img src="'+imageURI+'"/></a>';
+				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
+				app.CarregarSlider();
 			}
     }
 
