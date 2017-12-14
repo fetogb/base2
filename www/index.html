@@ -18,6 +18,7 @@
 
  
     function onPhotoURISuccess(imageURI) {
+	alert(imageURI);
       elemento = document.querySelector(".slider img");
 	  if(elemento.id == "oi"){
 				var x = document.getElementById('slider');
@@ -36,7 +37,8 @@
       // Retrieve image file location from specified source
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
         destinationType: destinationType.FILE_URI,
-        sourceType: source });
+        sourceType: source,
+		mediaType: Camera.MediaType.Picture});
     }
 function onFail(message) {
       alert('Failed because: ' + message);
