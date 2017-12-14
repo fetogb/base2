@@ -248,9 +248,8 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 	},
 	Verde2: function(){
 		navigator.camera.getPicture(onPhotoURISuccess, onFail, {quality: 50,
-		destinationType: Camera.DestinationType.File_URI,
-		sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-		encodingType: Camera.EncodingType.JPEG
+		destinationType: destinationType.FILE_URI,
+		sourceType: pictureSourceType.PHOTOLIBRARY
 		});
 
 	function adicao(imagemadd){
