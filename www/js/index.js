@@ -270,7 +270,6 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 			}
 		}
     function onPhotoURISuccess(imageURI) {
-		alert(imageURI);
 		adicao(imageURI);
     }
 	function onFail(message) {
