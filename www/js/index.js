@@ -186,8 +186,6 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 		});
 
 		function onSuccess(imageData) {
-			//ad = "data:image/jpeg;base64," + imageData;
-			alert(imageData);
 			adicao(imageData);
 			var image = document.getElementById('imagem');
 			image.src = "data:image/jpeg;base64," + imageData;
@@ -219,37 +217,6 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 		destinationType: Camera.DestinationType.File_URI,
 		sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
 		encodingType: Camera.EncodingType.JPEG
-		});
-
-	function adicao(imagemadd){
-			elemento = document.querySelector(".slider img");
-			if(elemento.id == "oi"){
-				var x = document.getElementById('slider');
-				x.innerHTML = "";
-				var $wrapper = document.querySelector('.slider'),
-				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
-				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
-				app.CarregarSlider();
-			}else{
-				var $wrapper = document.querySelector('.slider'),
-				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
-				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
-				app.CarregarSlider();
-			}
-		}
-    function onPhotoURISuccess(imageURI) {
-		alert(imageURI);
-		adicao(imageURI);
-    }
-	function onFail(message) {
-			alert('Failed because: ' + message);
-	}
-			
-	},
-	Verde2: function(){
-		navigator.camera.getPicture(onPhotoURISuccess, onFail, {quality: 50,
-		destinationType: destinationType.FILE_URI,
-		sourceType: pictureSourceType.PHOTOLIBRARY
 		});
 
 	function adicao(imagemadd){
