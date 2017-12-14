@@ -182,12 +182,12 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 	},
 	CapturePhoto: function(){
 		navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-		destinationType: Camera.DestinationType.DATA_URL
+		destinationType: Camera.DestinationType.File_URI
 		});
 
 		function onSuccess(imageData) {
-			ad = "data:image/jpeg;base64," + imageData;
-			adicao(ad);
+			//ad = "data:image/jpeg;base64," + imageData;
+			adicao(imageData);
 			var image = document.getElementById('imagem');
 			image.src = "data:image/jpeg;base64," + imageData;
 		}
@@ -201,7 +201,6 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 			if(elemento.id == "oi"){
 				var x = document.getElementById('slider');
 				x.innerHTML = "";
-				alert(imagemadd);
 				var $wrapper = document.querySelector('.slider'),
 				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
 				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
