@@ -218,7 +218,7 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 		navigator.camera.getPicture(onPhotoURISuccess, onFail, {quality: 50,
 		destinationType: Camera.DestinationType.Data_URL,
 		sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-		mediaType: Camera.MediaType.PICTURE
+		encodingType: Camera.EncodingType.JPEG
 		});
 
 	function adicao(imagemadd){
