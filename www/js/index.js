@@ -208,7 +208,7 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 				var $wrapper = document.querySelector('.slider'),
 				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
 				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
-				app.CarregarSlider();
+				settings.proximo();
 			}
 		}
 	},
@@ -232,7 +232,7 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 				var $wrapper = document.querySelector('.slider'),
 				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
 				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
-				app.CarregarSlider();
+				settings.proximo();
 			}
 		}
     function onPhotoURISuccess(imageURI) {
