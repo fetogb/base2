@@ -18,12 +18,13 @@
 
  
     function onPhotoURISuccess(imageURI) {
-	alert(imageURI);
       elemento = document.querySelector(".slider img");
 	  if(elemento.id == "oi"){
 				var x = document.getElementById('slider');
 				x.innerHTML = "";
-				x.innerHTML = "<a href='#' class='trs'><img src="+imageURI+"></a>";
+				var $wrapper = document.querySelector('.slider'),
+				HTMLNovo = '<a href="#" class="trs"><img src="'+imageURI+'"/></a>';
+				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
 				app.CarregarSlider();
 			}else{
 				var $wrapper = document.querySelector('.slider'),
@@ -37,8 +38,7 @@
       // Retrieve image file location from specified source
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
         destinationType: destinationType.FILE_URI,
-        sourceType: source,
-		mediaType: Camera.MediaType.Picture});
+        sourceType: source });
     }
 function onFail(message) {
       alert('Failed because: ' + message);
@@ -69,7 +69,6 @@ function onFail(message) {
 		<button class="filtro mdl-button mdl-button--raised" id="Invert" onclick="app.Invert()"> Invert </button>
 		<button id="enviar" onclick="app.Pegar()" class="prin mdl-button mdl-button--raised mdl-button--colored"> Send Photo</button>
 		<button id="procurar" class="procurar mdl-button mdl-button--fab mdl-button--colored" onclick="app.Verde()"><img src="img\search.png"></button>
-		<button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
 		<img style="display:none;" id="largeImage" src="" />
 	</div>
     <script type="text/javascript" src="cordova.js"></script>
