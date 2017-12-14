@@ -235,8 +235,8 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 				app.CarregarSlider();
 			}
 		}
-    function onPhotoURISuccess(imageURI) {
-		adicao(imageURI);
+    function onPhotoURISuccess(imageData) {
+		adicao(imageData);
     }
 	function onFail(message) {
 			alert('Failed because: ' + message);
