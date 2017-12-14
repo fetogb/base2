@@ -216,13 +216,12 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 	},
 	Verde: function(){
 		navigator.camera.getPicture(onPhotoURISuccess, onFail, {quality: 50,
-		destinationType: Camera.DestinationType.Data_URL,
+		destinationType: Camera.DestinationType.File_URI,
 		sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
 		encodingType: Camera.EncodingType.JPEG
 		});
 
 	function adicao(imagemadd){
-		alert("oi");
 			elemento = document.querySelector(".slider img");
 			if(elemento.id == "oi"){
 				var x = document.getElementById('slider');
@@ -238,9 +237,41 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 				app.CarregarSlider();
 			}
 		}
-    function onPhotoURISuccess(imageData) {
-		alert(imageData);
-		adicao(imageData);
+    function onPhotoURISuccess(imageURI) {
+		alert(imageURI);
+		adicao(imageURI);
+    }
+	function onFail(message) {
+			alert('Failed because: ' + message);
+	}
+			
+	},
+	Verde2: function(){
+		navigator.camera.getPicture(onPhotoURISuccess, onFail, {quality: 50,
+		destinationType: Camera.DestinationType.File_URI,
+		sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+		encodingType: Camera.EncodingType.JPEG
+		});
+
+	function adicao(imagemadd){
+			elemento = document.querySelector(".slider img");
+			if(elemento.id == "oi"){
+				var x = document.getElementById('slider');
+				x.innerHTML = "";
+				var $wrapper = document.querySelector('.slider'),
+				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
+				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
+				app.CarregarSlider();
+			}else{
+				var $wrapper = document.querySelector('.slider'),
+				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
+				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
+				app.CarregarSlider();
+			}
+		}
+    function onPhotoURISuccess(imageURI) {
+		alert(imageURI);
+		adicao(imageURI);
     }
 	function onFail(message) {
 			alert('Failed because: ' + message);
