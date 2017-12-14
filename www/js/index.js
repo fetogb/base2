@@ -201,6 +201,7 @@ var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, opti
 			if(elemento.id == "oi"){
 				var x = document.getElementById('slider');
 				x.innerHTML = "";
+				alert(imagemadd);
 				var $wrapper = document.querySelector('.slider'),
 				HTMLNovo = '<a href="#" class="trs"><img src="'+imagemadd+'"/></a>';
 				$wrapper.insertAdjacentHTML('afterbegin', HTMLNovo);
